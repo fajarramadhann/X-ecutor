@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       external: [
-        'aptos',
         '@mizuwallet-sdk/core',
         'graphql-request',
         'graphql'
