@@ -1,6 +1,13 @@
-
 import { useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, Twitter, User, MessageSquare, Edit3, LayoutTemplate } from "lucide-react";
+import {
+  Menu,
+  X,
+  Twitter,
+  User,
+  MessageSquare,
+  Edit3,
+  LayoutTemplate,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import ConnectButtons from "./ConnectButtons";
 
@@ -31,19 +38,22 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <header 
+    <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 py-4 md:py-3 flex items-center justify-between">
         <div className="flex items-center">
-          <button 
+          <button
             onClick={() => navigate("/")}
             className="font-display font-bold text-xl flex items-center gap-2"
           >
-            <span className="text-primary">Agent</span>
-            <span>X</span>
+            <span className="flex items-center">
+              X-<span className="text-primary">ecutor</span>
+            </span>
           </button>
         </div>
 
@@ -53,7 +63,9 @@ const Header = () => {
             <button
               key={item.name}
               onClick={() => navigate(item.path)}
-              className={`nav-item ${location.pathname === item.path ? "nav-item-active" : ""}`}
+              className={`nav-item ${
+                location.pathname === item.path ? "nav-item-active" : ""
+              }`}
             >
               <span className="flex items-center gap-1.5">
                 {item.icon && <item.icon className="w-4 h-4" />}
@@ -61,14 +73,14 @@ const Header = () => {
               </span>
             </button>
           ))}
-          
+
           <div className="ml-4">
             <ConnectButtons />
           </div>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
@@ -91,7 +103,7 @@ const Header = () => {
                   key={item.name}
                   onClick={() => navigate(item.path)}
                   className={`flex items-center gap-2 p-2 rounded-md ${
-                    location.pathname === item.path 
+                    location.pathname === item.path
                       ? "bg-primary/10 text-primary"
                       : "hover:bg-muted"
                   }`}
@@ -100,7 +112,7 @@ const Header = () => {
                   {item.name}
                 </button>
               ))}
-              
+
               <div className="pt-3 border-t border-border">
                 <ConnectButtons />
               </div>

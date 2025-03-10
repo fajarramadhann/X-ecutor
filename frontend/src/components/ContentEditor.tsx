@@ -409,17 +409,30 @@ const ContentEditor = ({ initialContent = "" }: ContentEditorProps) => {
         </button>
         
         <button 
-          onClick={handlePostToTwitter}
-          className="button-primary ml-auto group transition-all duration-300 hover:scale-105"
-          disabled={isPosting || !content.trim()}
-        >
-          {isPosting ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
-          ) : (
-            <Twitter className="w-4 h-4 group-hover:text-[#1DA1F2]" />
-          )}
-          <span>Post to Twitter</span>
-        </button>
+      onClick={handlePostToTwitter}
+      className="button-outline group transition-all duration-300 hover:scale-105"
+      disabled={isPosting || !content.trim()}
+    >
+      {isPosting ? (
+        <Loader2 className="w-4 h-4 animate-spin" />
+      ) : (
+        <Twitter className="w-4 h-4 group-hover:text-[#1DA1F2]" />
+      )}
+      <span>Post to Twitter X-ecutor</span>
+    </button>
+    
+    <button 
+      onClick={handlePostToTwitter}
+      className="button-primary group transition-all duration-300 hover:scale-105"
+      disabled={isPosting || !content.trim()}
+    >
+      {isPosting ? (
+        <Loader2 className="w-4 h-4 animate-spin" />
+      ) : (
+        <Twitter className="w-4 h-4 group-hover:text-white" />
+      )}
+      <span>Post to your Twitter</span>
+    </button>
       </div>
     </div>
   );

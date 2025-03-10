@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import CustomizationPanel from "../components/CustomizationPanel";
 import AgentCard from "../components/AgentCard";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, MessageSquare, Wallet } from "lucide-react";
 import { toast } from "sonner";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
 
 interface AgentSettings {
   name: string;
@@ -16,6 +17,7 @@ interface AgentSettings {
 }
 
 const Customize = () => {
+  const { connected } = useWallet();
   const navigate = useNavigate();
   const [savedAgent, setSavedAgent] = useState<AgentSettings | null>(null);
   
@@ -43,6 +45,39 @@ const Customize = () => {
       position: "top-center",
     });
   };
+
+  if (!connected) {
+    return (
+      <Layout>
+        <div className="flex flex-col items-center justify-center min-h-[80vh]">
+          <div className="w-full max-w-md mx-auto space-y-8 text-center">
+            {/* Icon Container */}
+            <div className="relative">
+              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto ring-8 ring-primary/5">
+                <Wallet className="w-10 h-10 text-primary" />
+              </div>
+              <div className="absolute -bottom-1 right-1/2 transform translate-x-1/2">
+                <span className="flex h-4 w-4">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-20"></span>
+                  <span className="relative inline-flex rounded-full h-4 w-4 bg-primary"></span>
+                </span>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="space-y-3">
+              <h2 className="text-2xl font-semibold tracking-tight">
+                Connect Your Wallet
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 max-w-sm mx-auto">
+                Please connect your wallet to access the Content Generator and start creating engaging tweets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>

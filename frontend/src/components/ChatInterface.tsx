@@ -1,6 +1,8 @@
 
 import React, { useState, useRef, useEffect } from "react";
-import { Send, Bot, User, Loader2, Edit3 } from "lucide-react";
+import { Send, Bot, User, Loader2, Edit3, Wallet } from "lucide-react";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import { ConnectYourWallet } from "./ConnectYourWallet";
 
 interface Message {
   id: string;
@@ -15,6 +17,7 @@ interface ChatInterfaceProps {
 }
 
 const ChatInterface = ({ agentName = "AgentX", onGenerate }: ChatInterfaceProps) => {
+  const { connected } = useWallet();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -88,6 +91,15 @@ const ChatInterface = ({ agentName = "AgentX", onGenerate }: ChatInterfaceProps)
       onGenerate(content);
     }
   };
+
+  if (!connected) {
+    return (
+      <ConnectYourWallet 
+        title="Connect to Chat"
+        description="Please connect your wallet to access the AI Agent"
+      />
+    );
+  }
 
   return (
     <div className="flex flex-col h-full rounded-2xl glass-card overflow-hidden animate-fade-in shadow-lg transition-all duration-300 hover:shadow-xl">

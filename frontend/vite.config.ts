@@ -9,6 +9,17 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  build: {
+    rollupOptions: {
+      external: [
+        'aptos',
+        '@mizuwallet-sdk/core',
+        '@telegram-apps/bridge',
+        'graphql-request',
+        'graphql'
+      ]
+    }
+  },
   plugins: [
     react(),
     mode === 'development' &&
