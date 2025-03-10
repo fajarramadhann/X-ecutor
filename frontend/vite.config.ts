@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       external: [
-        'aptos',
+        // 'aptos',
         // '@mizuwallet-sdk/core',
         // '@telegram-apps/bridge'
       ]
