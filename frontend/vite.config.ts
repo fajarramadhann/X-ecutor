@@ -12,9 +12,9 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       external: [
-        '@mizuwallet-sdk/core',
-        'graphql-request',
-        'graphql'
+        'aptos',
+        // '@mizuwallet-sdk/core',
+        '@telegram-apps/bridge'
       ]
     }
   },
@@ -28,4 +28,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: ["@mizuwallet-sdk/core"]
+  }
 }));

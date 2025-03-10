@@ -4,11 +4,13 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+  "type": "module",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
+    "moduleResolution": "node",
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
