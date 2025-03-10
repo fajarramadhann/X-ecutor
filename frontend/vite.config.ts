@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => ({
       external: [
         'aptos',
         '@mizuwallet-sdk/core',
-        '@telegram-apps/bridge',
         'graphql-request',
         'graphql'
       ]

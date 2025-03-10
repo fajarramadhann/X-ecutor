@@ -1574,20 +1574,6 @@
   dependencies:
     "@tanstack/query-core" "5.67.2"
 
-"@telegram-apps/bridge@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@telegram-apps/bridge/-/bridge-2.4.0.tgz#206d4ff14b2635ecd671715cb6a665bbce50e674"
-  integrity sha512-Lp/vhspF7okK8zXvSWWirunKXOPE6Gr11o9VBne4VmKG/yHRhEW7Pf07ncPtXLLzI6wW8+VYc3khsHPABJymEw==
-  dependencies:
-    "@telegram-apps/signals" "^1.1.1"
-    "@telegram-apps/toolkit" "^2.0.0"
-    "@telegram-apps/transformers" "^2.2.0"
-    "@telegram-apps/types" "^2.0.0"
-    better-promises "^0.4.0"
-    error-kid "^0.0.4"
-    mitt "^3.0.1"
-    valibot "1.0.0-beta.14"
-
 "@telegram-apps/signals@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@telegram-apps/signals/-/signals-1.1.1.tgz#807e7b73ba665126a5024dd4578e9aed52c06012"
