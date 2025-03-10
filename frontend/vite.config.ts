@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
       external: [
         'aptos',
         // '@mizuwallet-sdk/core',
-        '@telegram-apps/bridge'
+        // '@telegram-apps/bridge'
       ]
     }
   },
@@ -29,6 +29,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ["@mizuwallet-sdk/core"]
+    include: ["@mizuwallet-sdk/core", "@telegram-apps/bridge"],
   }
 }));
