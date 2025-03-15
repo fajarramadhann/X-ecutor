@@ -69,14 +69,21 @@ export const managerRouter = (state: typeof StateAnnotation.State) => {
 	console.log(67, "managerRouter")
 	const { isAptosReadQuery, isWriterQuery, isXPostQuery } = state
 
-	if (isAptosReadQuery) {
-		console.log(69, "aptosRead")
-		return "aptosRead"
-	} else if (isWriterQuery) {
+	if (isWriterQuery) {
 		return "tweetWriter"
 	} else if (isXPostQuery) {
 		return "postOnTwitter"
 	} else {
 		return END
 	}
+	// if (isAptosReadQuery) {
+	// 	console.log(69, "aptosRead")
+	// 	return "aptosRead"
+	// } else if (isWriterQuery) {
+	// 	return "tweetWriter"
+	// } else if (isXPostQuery) {
+	// 	return "postOnTwitter"
+	// } else {
+	// 	return END
+	// }
 }
