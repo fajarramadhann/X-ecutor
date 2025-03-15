@@ -1,0 +1,31 @@
+{
+  "name": "langgraph-agent-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && ts-node dist/index.js",
+    "test": "tsc && ts-node dist/__test__/index.js"
+  },
+  "dependencies": {
+    "@aptos-labs/ts-sdk": "link:..\\aptos-ts-sdk",
+    "@langchain/anthropic": "^0.3.11",
+    "@langchain/core": "^0.3.30",
+    "@langchain/google-genai": "^0.1.11",
+    "@langchain/langgraph": "^0.2.40",
+    "@langchain/openai": "^0.4.4",
+    "agent-twitter-client": "^0.0.18",
+    "dotenv": "^16.4.7",
+    "move-agent-kit": "link:..\\move-agent-kit",
+    "ts-node": "^10.9.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.3"
+}

@@ -1,0 +1,44 @@
+import { createReactAgent } from "@langchain/langgraph/prebuilt"
+import {
+	AptosAccountAddressTool,
+	AptosBalanceTool,
+	AptosGetTokenDetailTool,
+	AptosGetTokenPriceTool,
+	AptosTransactionTool,
+	JouleGetPoolDetails,
+} from "move-agent-kit"
+import { setupAgentKit } from "../agent"
+import { StateAnnotation } from "../state"
+
+export const createAptosReadAgent = async () => {
+	const { agentRuntime, llm } = await setupAgentKit()
+
+	const readAgentTools = [
+		new AptosBalanceTool(agentRuntime),
+		new AptosGetTokenDetailTool(agentRuntime),
+		new AptosAccountAddressTool(agentRuntime),
+		new AptosTransactionTool(agentRuntime),
+		new AptosGetTokenPriceTool(agentRuntime),
+		new JouleGetPoolDetails(agentRuntime),
+	]
+
+	const readAgent = createReactAgent({
+		tools: readAgentTools,
+		llm: llm,
+	})
+
+	return readAgent
+}
+
+export const aptosReadNode = async (state: typeof StateAnnotation.State) => {
+	console.log(34, "aptosReadNode")
+	const { messages } = state
+
+	const readAgent = await createAptosReadAgent()
+
+	const result = await readAgent.invoke({ messages })
+	console.log(39, result)
+	return {
+		messages: [...result.messages],
+	}
+}
